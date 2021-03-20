@@ -33,7 +33,7 @@ There are three endpoints for use cases under the ```nagivation-api/``` path.
 
 ## Postman Collection
 
-I added postman collection to test API. There are example request bodies also.
+I added postman collection and environment to test API. There are example request bodies also.
 
 ### Whole collection is like below.
 
