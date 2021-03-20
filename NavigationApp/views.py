@@ -16,9 +16,15 @@ def get_last_points(request):
         return JsonResponse({}, status=405)
 
     date_from = datetime.datetime.now() - datetime.timedelta(days=2)
-    navigation_record_list = NavigationRecord.objects.filter(datetime__gte=date_from).order_by('-datetime').values(
-        'latitude', 'longitude', 'datetime', vehicle_plate=F('vehicle__plate'))
-    if navigation_record_list.count():
+    vehicles = Vehicle.objects.all()
+    navigation_record_list = []
+    for v in vehicles:
+        navigation_record = NavigationRecord.objects.filter(datetime__gte=date_from, vehicle=v).order_by(
+            '-datetime').values(
+            'latitude', 'longitude', 'datetime', vehicle_plate=F('vehicle__plate')).first()
+        if navigation_record:
+            navigation_record_list.append(navigation_record)
+    if len(navigation_record_list):
         return JsonResponse({"last_points": list(navigation_record_list)})
     return JsonResponse({}, status=204)
 
