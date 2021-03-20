@@ -1,7 +1,7 @@
 import datetime
 import json
 
-from django.db.models import F, Case, When, Max
+from django.db.models import F, Case, When
 from django.http import HttpResponse, JsonResponse
 from NavigationApp.models import NavigationRecord, Vehicle
 
@@ -16,9 +16,8 @@ def get_last_points(request):
         return JsonResponse({}, status=405)
 
     date_from = datetime.datetime.now() - datetime.timedelta(days=2)
-    navigation_record_list = NavigationRecord.objects.filter(
-        datetime__gte=date_from).order_by('-datetime').values(
-        'latitude', 'longitude', 'datetime', vehicle_plate=F('vehicle__plate')).distinct('vehicle')
+    navigation_record_list = NavigationRecord.objects.filter(datetime__gte=date_from).order_by('-datetime').values(
+        'latitude', 'longitude', 'datetime', vehicle_plate=F('vehicle__plate'))
     if navigation_record_list.count():
         return JsonResponse({"last_points": list(navigation_record_list)})
     return JsonResponse({}, status=204)

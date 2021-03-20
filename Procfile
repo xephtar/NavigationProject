@@ -1,1 +1,0 @@
-web: gunicorn NavigationProject.wsgi --log-file -
