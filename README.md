@@ -30,3 +30,24 @@ There are three endpoints for use cases under the ```nagivation-api/``` path.
  - bulk-create-navigation-records
 	 > It takes json array and creates navigation records for vehicles
 	 > The postman collections has example request body
+
+## Postman Collection
+
+I added postman collection to test API. There are example request bodies also.
+
+### Whole collection is like below.
+
+![collection](http://prntscr.com/10qvays)
+
+### The get-last-points endpoint
+
+![collection](http://prntscr.com/10qvbu4)
+
+### The bulk-create-vehicles endpoint
+
+![collection](http://prntscr.com/10qvd1r)
+
+### The bulk-create-navigation-records endpoint
+
+![collection](http://prntscr.com/10qvdpy)
+
