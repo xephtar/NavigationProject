@@ -22,6 +22,7 @@ def get_last_points(request):
         navigation_record = NavigationRecord.objects.filter(datetime__gte=date_from, vehicle=v).order_by(
             '-datetime').values(
             'latitude', 'longitude', 'datetime', vehicle_plate=F('vehicle__plate')).first()
+
         if navigation_record:
             navigation_record_list.append(navigation_record)
     if len(navigation_record_list):

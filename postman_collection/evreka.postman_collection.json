@@ -67,12 +67,24 @@
 				},
 				{
 					"name": "bulk-create-navigation-records",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var current_timestamp = new Date();\r",
+									"postman.setEnvironmentVariable(\"current_timestamp\", current_timestamp.toISOString());"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"navigation_records\": [\r\n        {\r\n            \"latitude\": 657.5464,\r\n            \"longitude\": 18111113.7,\r\n            \"datetime\": \"2021-03-18 22:26:32.932\",\r\n            \"vehicle_plate\": \"10 bb 7565\"\r\n        },\r\n        {\r\n            \"latitude\": 53.0,\r\n            \"longitude\": 999999.564,\r\n            \"datetime\": \"2021-03-19 23:37:58\",\r\n            \"vehicle_plate\": \"91 a 67\"\r\n        },\r\n        {\r\n            \"latitude\": 53.0,\r\n            \"longitude\": 33.564,\r\n            \"datetime\": \"2021-03-18 23:37:58\",\r\n            \"vehicle_plate\": \"91 a 67\"\r\n        },\r\n        {\r\n            \"latitude\": 53.0,\r\n            \"longitude\": 33.564,\r\n            \"vehicle_plate\": \"91 a 67\"\r\n        }\r\n    ]\r\n}",
+							"raw": "{\r\n    \"navigation_records\": [\r\n        {\r\n            \"latitude\": 53.0,\r\n            \"longitude\": 999999.564,\r\n            \"datetime\": \"{{current_timestamp}}\",\r\n            \"vehicle_plate\": \"91 a 67\"\r\n        },\r\n        {\r\n            \"latitude\": 53.0,\r\n            \"longitude\": 33.564,\r\n            \"datetime\": \"{{current_timestamp}}\",\r\n            \"vehicle_plate\": \"76 zz 890\"\r\n        },\r\n        {\r\n            \"latitude\": 53.0,\r\n            \"longitude\": 33.564,\r\n            \"datetime\": \"{{current_timestamp}}\",\r\n            \"vehicle_plate\": \"11 bb 7565\"\r\n        }\r\n    ]\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
