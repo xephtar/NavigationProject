@@ -37,17 +37,17 @@ I added postman collection to test API. There are example request bodies also.
 
 ### Whole collection is like below.
 
-![collection](http://prntscr.com/10qvays)
+![collection](https://i.ibb.co/RpzHXHj/download-1.png)
 
 ### The get-last-points endpoint
 
-![collection](http://prntscr.com/10qvbu4)
+![collection](https://i.ibb.co/LhLhYq2/download-2.png)
 
 ### The bulk-create-vehicles endpoint
 
-![collection](http://prntscr.com/10qvd1r)
+![collection](https://i.ibb.co/47dmDvq/download-3.png)
 
 ### The bulk-create-navigation-records endpoint
 
-![collection](http://prntscr.com/10qvdpy)
+![collection](https://i.ibb.co/djBS72C/download-4.png)
 
